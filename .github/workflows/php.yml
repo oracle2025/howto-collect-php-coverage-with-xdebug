@@ -1,0 +1,20 @@
+
+name: PHP CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docker images
+      run: docker build -t local - < Dockerfile
+    - name: Install dependencies
+      run: docker-compose run composer
+    - name: Run tests
+      run: docker run  -t -v $PWD:/var/www/html local ./run_tests_with_coverage.sh
