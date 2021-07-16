@@ -10,3 +10,10 @@ services:
     image: php71-apache
     environment:
       XDEBUG_CONFIG: "remote_host=192.168.1.156"
+  composer:
+    restart: 'no'
+    image: composer/composer:latest
+    command: install
+    volumes:
+      - .:/app
+    user: ${HOST_UID_GID}
