@@ -1,13 +1,13 @@
 version: "2"
 services:
   php:
-    container_name: php71-apache-example
+    container_name: php73-apache-example
     volumes:
-      - /Users/larry/Sites/myexamplesite.com/htdocs:/var/www/html
+      - .:/var/www/html
     ports:
       - 8080:80
     build: ./
-    image: php71-apache
+    image: php73-apache
     environment:
       XDEBUG_CONFIG: "remote_host=192.168.1.156"
   composer:

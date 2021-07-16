@@ -1,2 +1,2 @@
 #!/bin/bash -x
-docker build -t php71-apache .
+docker build -t php73-apache .
