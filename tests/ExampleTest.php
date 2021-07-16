@@ -12,5 +12,9 @@ class ExampleTest extends TestCase
     public function testEcho()
     {
     	echo $this->greeting;
+	$this->assertEquals(
+            'Hello',
+            $this->greeting
+        );
     }
 }
